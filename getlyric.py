@@ -28,7 +28,7 @@ extension = '.txt'
 outputFolder = "D:\\Phelps\\GitHub\\Python\\LSTM\\data\\MayDay\\"               # output folder name
 outputFile = name                                                       # output file name
 # open file
-fp = open(outputFolder + name + extension, "a")
+fp = open(outputFolder + name + extension, 'a', encoding='UTF-8')
 
 
 r = requests.get(url)
@@ -45,6 +45,9 @@ soup = BeautifulSoup(html_str, 'html.parser')
 link_tag = soup.find(id='fsZx3')
 #print(link_tag)
 #print(link_tag.text)
+
+#encoding
+link_tag.encode('UTF-8')
 
 #ouptut
 fp.writelines(link_tag.text)
