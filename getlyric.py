@@ -2,7 +2,7 @@
 
 '''
 version: December 05, 2019 05:31 PM
-Last revision: December 05, 2019 06:54 PM
+Last revision: December 05, 2019 07:25 PM
 
 Author : Chao-Hsuan Ke
 
@@ -20,8 +20,8 @@ https://blog.gtwang.org/programming/python-beautiful-soup-module-scrape-web-page
 import requests
 from bs4 import BeautifulSoup
 
-url = 'https://mojim.com/twy100012x1x1.htm'
-name = '瘋狂世界'
+url = 'https://mojim.com/twy100012x70x1.htm'
+name = '玫瑰少年'
 extension = '.txt'
 
 #output
