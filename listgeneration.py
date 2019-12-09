@@ -18,7 +18,7 @@ list = []
 # ouptut
 outputFolder = "D:\\Phelps\\GitHub\\Python\\LSTM\\data\\"                      # output folder name
 outputFile = "list.txt"
-fw = open(outputFolder + outputFile, "a")       # 'a' --> overlapping
+fw = open(outputFolder + outputFile, "a", encoding='UTF-8')       # 'a' --> overlapping
 
 def readfolderfile(foldername):
     folderfilepath = listdir(foldername)
