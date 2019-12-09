@@ -20,7 +20,7 @@ outputFolder = "D:\\Phelps\\GitHub\\Python\\LSTM\\data\\"                      #
 outputFile = "list.txt"
 fw = open(outputFolder + outputFile, "a", encoding='UTF-8')       # 'a' --> overlapping
 
-def readfolderfile(foldername):
+def readfolderfileName(foldername):
     folderfilepath = listdir(foldername)
     for fileNames in folderfilepath:
         #print(fileNames[0:len(fileNames)-4])
@@ -37,7 +37,7 @@ if (os.path.exists(filePath)):
             #print("file：", fileName)
         elif isdir(fullpath):
             #print("folder：", fileName)
-            readfolderfile(fullpath)
+            readfolderfileName(fullpath)
 
 for ss in list:
     fw.write(ss+"\n")
