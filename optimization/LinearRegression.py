@@ -2,7 +2,7 @@
 
 '''
 version: December 16, 2019 10:45 AM
-Last revision: December 16, 2019 11:30 AM
+Last revision: December 16, 2019 01:14 PM
 
 Author : Chao-Hsuan Ke
 '''
@@ -27,15 +27,16 @@ b = tf.Variable(tf.zeros([1]))
 def linear_regression(x):
     return W * x + b
 
-
+# evaluate the error (lose function)
 def mean_square(y_pred, y_true):
     return tf.reduce_sum(tf.pow(y_pred - y_true, 2)) / (2 * n_samples)
 
 
 learning_rate = 0.5
 # Stochastic Gradient Descent Optimizer.
-optimizer = tf.optimizers.SGD(learning_rate)
-
+#optimizer = tf.optimizers.SGD(learning_rate)
+#optimizer (Adam)
+optimizer = tf.optimizers.Adam(learning_rate)
 
 def run_optimization():
     # Wrap computation inside a GradientTape for automatic differentiation.
