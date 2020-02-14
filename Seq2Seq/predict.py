@@ -23,7 +23,7 @@ saveMode = 'seq2seq.h5'
 
 # data processing
 latent_dim = 256  # Latent dimensionality of the encoding space.
-num_samples = 15000  # Number of samples to train on.
+num_samples = 10000  # Number of samples to train on.
 
 with open(data_path, 'r', encoding='utf-8') as f:
   lines = f.read().split('\n')
@@ -138,18 +138,20 @@ def decode_sequence(input_seq):
 
     return decoded_sentence
 
+# sequence Input and Display (predict)
+for line in lines[: min(num_samples, len(lines) - 1)]:
+    input_Test_text, target_text, lincene = line.split('\t')
+    test_sentence_tokenized = np.zeros((1, max_encoder_seq_length, num_encoder_tokens), dtype='float32')
+    for t, char in enumerate(input_Test_text):
+        test_sentence_tokenized[0, t, input_token_index[char]] = 1.
+    print(input_Test_text)
+    print(decode_sequence(test_sentence_tokenized))
 
-# for seq_index in range(10):
-#   input_seq = encoder_input_data[seq_index: seq_index + 1]
-#   decoded_sentence = decode_sequence(input_seq)
-#   print('-')
-#   print('Input sentence:', input_texts[seq_index])
-#   print('Decoded sentence:', decoded_sentence)
 
-# Input and Display
-input_sentence = "How are you?"
-test_sentence_tokenized = np.zeros((1, max_encoder_seq_length, num_encoder_tokens), dtype='float32')
-for t, char in enumerate(input_sentence):
-    test_sentence_tokenized[0, t, input_token_index[char]] = 1.
-print(input_sentence)
-print(decode_sequence(test_sentence_tokenized))
+# Single Input and Display (predict)
+# input_sentence = "Today is a good day?"
+# test_sentence_tokenized = np.zeros((1, max_encoder_seq_length, num_encoder_tokens), dtype='float32')
+# for t, char in enumerate(input_sentence):
+#     test_sentence_tokenized[0, t, input_token_index[char]] = 1.
+# print(input_sentence)
+# print(decode_sequence(test_sentence_tokenized))
